@@ -5,14 +5,14 @@ Laravel 5 操作日志自动记录
 ## Installation
 
 The ActionLog Service Provider can be installed via [Composer](http://getcomposer.org) by requiring the
-`Qylinfly/action-log` package and setting the `minimum-stability` to `dev` (required for Laravel 5) in your
+`qylinfly/action-log` package and setting the `minimum-stability` to `dev` (required for Laravel 5) in your
 project's `composer.json`.
 
 ```json
 {
     "require": {
        
-        "Qylinfly/action-log": "~1.0"
+        "qylinfly/action-log": "~1.0"
     },
    
 }
@@ -22,7 +22,7 @@ or
 
 Require this package with composer:
 ```
-composer require Qylinfly/action-log 
+composer require qylinfly/action-log 
 ```
 
 Update your packages with ```composer update``` or install with ```composer install```.
@@ -70,21 +70,34 @@ for Laravel 5.1+
 
 ## Configuration
 
-To use your own settings, publish config.
-
-```$ php artisan vendor:publish```
-
-`config/actionlog.php`
-
-```php
-//填写要记录的日志的模型名称
-	return [
-		'\App\Models\Users',
-	];
+You can publish the migration with:
+```bash
+php artisan vendor:publish --provider="Qylinfly\ActionLog\ActionLogServiceProvider" --tag="migrations"
 ```
-## Last Step
-run:
-```$ php artisan migrate```
+
+The package assumes that your users table name is called "users". If this is not the case
+you should manually edit the published migration to use your custom table name.
+
+After the migration has been published you can create the role- and permission-tables by
+running the migrations:
+
+```bash
+php artisan migrate
+```
+
+You can publish the config-file with:
+```bash
+php artisan vendor:publish --provider="Qylinfly\ActionLog\ActionLogServiceProvider" --tag="config"
+```
+To use your own settings, publish config.
+`config/actionlog.php`
+```php
+return [
+    'models'=>['\App\User'],//填写要记录的日志的模型名称 可以是多个
+    'enable'=>true //是否开启
+];
+```
+
 
 ## Demo
 自动记录操作日志，数据库操作需按如下:
