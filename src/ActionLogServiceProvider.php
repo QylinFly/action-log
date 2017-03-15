@@ -1,6 +1,6 @@
 <?php
 
-namespace luoyangpeng\ActionLog;
+namespace Qylinfly\ActionLog;
 
 use Illuminate\Support\ServiceProvider;
 use ActionLog;
@@ -25,8 +25,9 @@ class ActionLogServiceProvider extends ServiceProvider
             __DIR__ . '/config/actionlog.php' => config_path('actionlog.php'),
         ], 'config');
 
-        $model = config("actionlog");
-        if ($model) {
+        $enable = config("actionlog.enable",false);
+        $model = config("actionlog.models");
+        if ($model && $enable) {
             foreach ($model as $k => $v) {
 
                 $v::updated(function ($data) {
@@ -44,8 +45,6 @@ class ActionLogServiceProvider extends ServiceProvider
 
             }
         }
-
-
     }
 
     /**
@@ -56,7 +55,7 @@ class ActionLogServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton("ActionLog", function ($app) {
-            return new \luoyangpeng\ActionLog\Repositories\ActionLogRepository();
+            return new \Qylinfly\ActionLog\Repositories\ActionLogRepository();
         });
     }
 }

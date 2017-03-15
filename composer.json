@@ -1,13 +1,13 @@
 {
-  "name": "luoyangpeng/action-log",
+  "name": "Qylinfly/action-log",
   "description": "A laravel package of ActionLog",
   "keywords": ["laravel","ActionLog"],
 
   "license": "MIT",
   "authors": [
     {
-      "name": "luoyangpeng",
-      "email": "luoyangpeng1122@163.com"
+      "name": "Qylinfly",
+      "email": "18612116114@163.com"
     }
   ],
   "require": {
@@ -16,7 +16,7 @@
 
   "autoload": {
     "psr-4": {
-      "luoyangpeng\\ActionLog\\": "src/"
+      "Qylinfly\\ActionLog\\": "src/"
     }
   }
  

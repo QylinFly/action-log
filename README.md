@@ -5,14 +5,14 @@ Laravel 5 操作日志自动记录
 ## Installation
 
 The ActionLog Service Provider can be installed via [Composer](http://getcomposer.org) by requiring the
-`luoyangpeng/action-log` package and setting the `minimum-stability` to `dev` (required for Laravel 5) in your
+`Qylinfly/action-log` package and setting the `minimum-stability` to `dev` (required for Laravel 5) in your
 project's `composer.json`.
 
 ```json
 {
     "require": {
        
-        "luoyangpeng/action-log": "~1.0"
+        "Qylinfly/action-log": "~1.0"
     },
    
 }
@@ -22,7 +22,7 @@ or
 
 Require this package with composer:
 ```
-composer require luoyangpeng/action-log 
+composer require Qylinfly/action-log 
 ```
 
 Update your packages with ```composer update``` or install with ```composer install```.
@@ -39,14 +39,14 @@ Find the `providers` key in `config/app.php` and register the ActionLog Service 
 ```php
     'providers' => [
         // ...
-        'luoyangpeng\ActionLog\ActionLogServiceProvider',
+        'Qylinfly\ActionLog\ActionLogServiceProvider',
     ]
 ```
 for Laravel 5.1+
 ```php
     'providers' => [
         // ...
-        luoyangpeng\ActionLog\ActionLogServiceProvider::class,
+        Qylinfly\ActionLog\ActionLogServiceProvider::class,
     ]
 ```
 
@@ -55,14 +55,14 @@ Find the `aliases` key in `config/app.php`.
 ```php
     'aliases' => [
         // ...
-        'ActionLog' => 'luoyangpeng\ActionLog\Facades\ActionLogFacade',
+        'ActionLog' => 'Qylinfly\ActionLog\Facades\ActionLogFacade',
     ]
 ```
 for Laravel 5.1+
 ```php
     'aliases' => [
         // ...
-        'ActionLog' => luoyangpeng\ActionLog\Facades\ActionLogFacade::class,
+        'ActionLog' => Qylinfly\ActionLog\Facades\ActionLogFacade::class,
     ]
 ```
 
