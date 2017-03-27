@@ -29,7 +29,7 @@ class clientService
         'baiduboxapp' => 'baiduboxapp',
         'baidubrowser' => 'baidubrowser',
         'NokiaBrowser' => 'Nokia',
-        'DingTalk'=>'AliApp(DingTalk/*)'
+        'AliApp_DingTalk'=>'AliApp\(DingTalk\/*'
     );
 
     /**
@@ -75,7 +75,7 @@ class clientService
         'baidubrowser' => 'baidubrowser/[VER]', //百度
         'Safari' => array('Version/[VER]', 'Safari/[VER]'), //Mac OS X中的浏览器
         'NokiaBrowser' => 'NokiaBrowser/[VER]', //诺基亚
-        'DingTalk'=>'AliApp(DingTalk/[VER])',
+        'AliApp_DingTalk'=>'AliApp\(DingTalk/[VER]\)',
 
         // OS
         'iOS' => '\bi?OS\b [VER][ ;]{1}',
