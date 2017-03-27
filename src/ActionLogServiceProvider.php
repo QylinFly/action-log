@@ -26,7 +26,7 @@ class ActionLogServiceProvider extends ServiceProvider
         ], 'config');
 
         $enable = config("actionlog.enable",false);
-        $model = config("actionlog.models");
+        $model = config("actionlog.models",[]);
         if ($model && $enable) {
             foreach ($model as $k => $v) {
 

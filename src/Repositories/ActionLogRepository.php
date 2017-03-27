@@ -32,6 +32,7 @@ class ActionLogRepository {
             }
             $actionLog->url = request()->getRequestUri();
             $actionLog->ip = request()->getClientIp();
+            $actionLog->method = request()->method();
             $actionLog->type = $type;
             $actionLog->content = $content;
             $res = $actionLog->save();

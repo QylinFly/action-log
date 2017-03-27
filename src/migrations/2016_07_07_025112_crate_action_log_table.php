@@ -17,10 +17,11 @@ class CrateActionLogTable extends Migration
             $table->increments("uid")->comment("用户id");
             $table->string("username")->comment("姓名");
             $table->string("type","50")->comment("操作类型");
+            $table->string("method","10")->comment("方法");
             $table->string("ip","50")->comment("操作者ip");
             $table->string("browser",150)->nullable()->comment("浏览器");
             $table->string("system",50)->nullable()->comment("操作系统");
-            $table->string("user_agent")->nullable()->comment("user_agent");
+            $table->text("user_agent")->nullable()->comment("user_agent");
             $table->string("url",150)->comment('url');
             $table->string("content")->comment("操作描述");
 

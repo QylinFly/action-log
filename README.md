@@ -1,5 +1,5 @@
 # action-log
-Laravel 5 操作日志自动记录
+Laravel 5 The operation log is automatically recorded
 
 
 ## Installation
@@ -93,14 +93,18 @@ To use your own settings, publish config.
 `config/actionlog.php`
 ```php
 return [
-    'models'=>['\App\User'],//填写要记录的日志的模型名称 可以是多个
-    'enable'=>true //是否开启
+    //Middleware which records the request method
+    'request_methods'=>['post','get'],
+    //Fill in the name of the model to be logged, which can be multiple
+    'models'=>['\App\User'],
+    //Whether it is open
+    'enable'=>true
 ];
 ```
 
 
 ## Demo
-自动记录操作日志，数据库操作需按如下:
+Automatically record the operation log, the database operation should be as follows:
 ```php
 
 update
@@ -121,7 +125,7 @@ Users:destroy(1);
 
 ```
 
-主动记录操作日志
+Active log operation log
 
 ```php
 
@@ -131,5 +135,12 @@ ActionLog::createActionLog($type,$content);
 
 ```
 
+Middleware
 
-
+```php
+class Kernel extends HttpKernel
+{
+    protected $middleware = [
+       \Qylinfly\ActionLog\Middleware\UserActionLog::class
+    ];
+```
