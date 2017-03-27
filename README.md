@@ -14,7 +14,7 @@ project's `composer.json`.
        
         "qylinfly/action-log": "2.0.*"
     },
-   
+    ...
 }
 ```
 
@@ -143,4 +143,6 @@ class Kernel extends HttpKernel
     protected $middleware = [
        \Qylinfly\ActionLog\Middleware\UserActionLog::class
     ];
+     ...
+}
 ```
