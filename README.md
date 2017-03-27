@@ -12,7 +12,7 @@ project's `composer.json`.
 {
     "require": {
        
-        "qylinfly/action-log": "~1.0"
+        "qylinfly/action-log": "2.0.*"
     },
    
 }
