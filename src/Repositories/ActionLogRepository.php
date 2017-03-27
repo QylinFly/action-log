@@ -24,6 +24,7 @@ class ActionLogRepository {
                 $actionLog->uid = 0;
                 $actionLog->username = "访客";
             }
+
             if(isset($_SERVER['HTTP_USER_AGENT'])) {
                 $actionLog->user_agent=$_SERVER['HTTP_USER_AGENT'];
                 $actionLog->browser = clientService::getBrowser($_SERVER['HTTP_USER_AGENT'], true);
