@@ -94,7 +94,7 @@ To use your own settings, publish config.
 ```php
 return [
     //Middleware which records the request method
-    'request_methods'=>['post','get'],
+    'request_methods'=>['POST','GET'],
     //Fill in the name of the model to be logged, which can be multiple
     'models'=>['\App\User'],
     //Whether it is open
