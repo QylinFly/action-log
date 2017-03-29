@@ -30,7 +30,7 @@ class ActionLogRepository {
                 $actionLog->browser = clientService::getBrowser($_SERVER['HTTP_USER_AGENT'], true);
                 $actionLog->system = clientService::getPlatForm($_SERVER['HTTP_USER_AGENT'], true);
             }
-            $actionLog->url = request()->getRequestUri();
+            $actionLog->url =  urldecode(request()->getRequestUri());
             $actionLog->ip = request()->getClientIp();
             $actionLog->method = request()->method();
             $actionLog->type = $type;
