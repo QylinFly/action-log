@@ -7,6 +7,7 @@ class ActionLogRepository {
 
     /**
      * 记录用户操作日志
+     * @en Record the user action log
      * @param $type
      * @param $content
      * @param ActionLog $actionLog
@@ -22,13 +23,17 @@ class ActionLogRepository {
                 $actionLog->username = auth()->user()->name;
             } else {
                 $actionLog->uid = 0;
-                $actionLog->username = "访客";
+                $actionLog->username = "Visitors";
             }
 
             if(isset($_SERVER['HTTP_USER_AGENT'])) {
-                $actionLog->user_agent=$_SERVER['HTTP_USER_AGENT'];
                 $actionLog->browser = clientService::getBrowser($_SERVER['HTTP_USER_AGENT'], true);
                 $actionLog->system = clientService::getPlatForm($_SERVER['HTTP_USER_AGENT'], true);
+
+                //save user_agent when  no browser and system
+                if($actionLog->browser=='' || $actionLog->system==''){
+                    $actionLog->user_agent=$_SERVER['HTTP_USER_AGENT'];
+                }
             }
             $actionLog->url =  urldecode(request()->getRequestUri());
             $actionLog->ip = request()->getClientIp();

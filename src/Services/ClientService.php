@@ -14,6 +14,7 @@ class clientService
 
     /**
      * 各类主流游览器正则 * @var array
+     * @en All kinds of mainstream browser regular * @var array
      */
     protected static $browsers = array(
         'Edge' => 'Edge',
@@ -33,9 +34,9 @@ class clientService
     );
 
     /**
-     * 操作系统正则
-     * note:移动设备的系统需优先匹配
-     *      故正则需要放在电脑系统前面
+     * 操作系统正则 @en The operating system is regular
+     * note:移动设备的系统需优先匹配 @en The system of the mobile device needs to be matched first
+     *      故正则需要放在电脑系统前面 @en It is necessary to put in front of the computer system
      * @var array
      */
     protected static $platforms = array(
@@ -57,6 +58,7 @@ class clientService
 
     /**
      * 版本号匹配正则（游览器 + 操作系统）
+     * @en Version number matches regular (browser + operating system)
      * @var array
      */
     protected static $versionRegexs = array(
@@ -94,10 +96,10 @@ class clientService
 
 
     /**
-     * 获取客户端游览器
+     * 获取客户端游览器 @en Get the client browser
      * @param $userAgent $_SERVER['HTTP_USER_AGENT']
-     * @param bool $isReTurnVersion //是否一起返回版本号
-     * @return string (类型 + 版本号)
+     * @param bool $isReTurnVersion //是否一起返回版本号 @en Whether or not to return the version number together
+     * @return string (类型 + 版本号) @en (Type + version number)
      */
     public static function getBrowser($userAgent, $isReTurnVersion = false)
     {
@@ -118,9 +120,9 @@ class clientService
     }
 
     /**
-     * 获取客户端操作系统
+     * 获取客户端操作系统 @en Get the client operating system
      * @param $userAgent
-     * @param bool $isReTurnVersion //是否一起返回版本号
+     * @param bool $isReTurnVersion //是否一起返回版本号 @en Whether or not to return the version number together
      * @return string
      */
     public static function getPlatForm($userAgent, $isReTurnVersion = false)
@@ -169,6 +171,7 @@ class clientService
 
     /**
      * 根据匹配结果转换window系统版本号
+     * @en Convert the window system version number according to the matching result
      * @param $match
      * @return string
      */
@@ -186,7 +189,7 @@ class clientService
     }
 
     /**
-     * 正则匹配
+     * 正则匹配 @en Regular match
      * @param array $regex
      * @param $userAgent
      * @return string
@@ -197,7 +200,7 @@ class clientService
     }
 
     /**
-     * 版本号正则匹配
+     * 版本号正则匹配 @en The version number matches the match
      * @param array $regexs
      * @param $userAgent
      * @return string
