@@ -69,6 +69,7 @@ class clientService
         'Firefox' => 'Firefox/[VER]', //火狐
         'Fennec' => 'Fennec/[VER]', //火狐
         'IE' => array('IEMobile/[VER];', 'IEMobile [VER]', 'MSIE [VER];', 'rv:[VER]'),
+        'Edge' => 'Edge/[VER]', //Edge
         'Opera' => array('OPR/[VER]', 'Opera Mini/[VER]', 'Version/[VER]', 'Opera [VER]'),
         'UC Browser' => 'UC Browser[VER]', //UC
         'QQBrowser' => array('MQQBrowser/[VER]', 'TencentTraveler/[VER]'), //QQ
@@ -183,6 +184,8 @@ class clientService
             return '7';
         } else if ($match == '6.2') {
             return '8';
+        }else if ($match == '6.4') {
+            return '10';
         } else if ($match == '5.1') {
             return 'XP';
         }
