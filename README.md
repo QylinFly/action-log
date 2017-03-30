@@ -126,7 +126,7 @@ Users:destroy(1);
 ```
 
 Active log operation log
-
+- Custom record user access
 ```php
 
 use ActionLog
@@ -136,7 +136,7 @@ ActionLog::createActionLog($type,$content);
 ```
 
 Middleware
-
+- The middleware automatically records user access
 ```php
 class Kernel extends HttpKernel
 {
