@@ -16,6 +16,8 @@ class UserActionLog
      */
     public function handle($request, Closure $next)
     {
+        $response =   $next($request);
+        
         $enable = config("actionlog.enable",false);
         if($enable){
             $request_methods = config("actionlog.request_methods",[]);
@@ -26,7 +28,7 @@ class UserActionLog
             }
         }
 
-        return $next($request);
+        return $response;
     }
 
 }
