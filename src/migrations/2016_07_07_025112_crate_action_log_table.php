@@ -14,8 +14,7 @@ class CrateActionLogTable extends Migration
     {
         Schema::create('action_log', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger("uid")->comment("user_id");
-            $table->string("username")->comment("name");
+            $table->unsignedInteger("user_id")->nullable();
             $table->string("type","50")->comment("Type of operation");
             $table->string("method","10")->comment("method");
             $table->string("ip","50")->comment("operation ip");
@@ -23,7 +22,10 @@ class CrateActionLogTable extends Migration
             $table->string("system",50)->nullable()->comment("system");
             $table->text("user_agent")->nullable()->comment("user_agent");
             $table->string("url",150)->comment('url');
-            $table->string("content")->comment("content");
+            $table->text("content")->comment("content");
+
+            $table->string('action_logable_type')->nullable();
+            $table->unsignedInteger('action_logable_id')->nullable();
 
             $table->timestamps();
         });

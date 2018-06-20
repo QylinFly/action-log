@@ -31,15 +31,15 @@ class ActionLogServiceProvider extends ServiceProvider
             foreach ($model as $k => $v) {
 
                 $v::updated(function ($data) {
-                    ActionLog::createActionLog('update', "id:" . $data->id);
+                    ActionLog::createActionLog('update', $data);
                 });
 
                 $v::saved(function ($data) {
-                    ActionLog::createActionLog('add', "id:" . $data->id);
+                    ActionLog::createActionLog('add', $data);
                 });
 
                 $v::deleted(function ($data) {
-                    ActionLog::createActionLog('delete', "id:" . $data->id);
+                    ActionLog::createActionLog('delete', $data);
 
                 });
 
