@@ -14,7 +14,7 @@ class CrateActionLogTable extends Migration
     {
         Schema::create('action_log', function (Blueprint $table) {
             $table->increments('id');
-            $table->increments("uid")->comment("user_id");
+            $table->unsignedInteger("uid")->comment("user_id");
             $table->string("username")->comment("name");
             $table->string("type","50")->comment("Type of operation");
             $table->string("method","10")->comment("method");
