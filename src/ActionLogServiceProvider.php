@@ -31,15 +31,15 @@ class ActionLogServiceProvider extends ServiceProvider
             foreach ($model as $k => $v) {
 
                 $v::updated(function ($data) {
-                    ActionLog::createActionLog('update', "更新的id:" . $data->id);
+                    ActionLog::createActionLog('update', "id:" . $data->id);
                 });
 
                 $v::saved(function ($data) {
-                    ActionLog::createActionLog('add', "添加的id:" . $data->id);
+                    ActionLog::createActionLog('add', "id:" . $data->id);
                 });
 
                 $v::deleted(function ($data) {
-                    ActionLog::createActionLog('delete', "删除的id:" . $data->id);
+                    ActionLog::createActionLog('delete', "id:" . $data->id);
 
                 });
 
