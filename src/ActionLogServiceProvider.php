@@ -25,24 +25,23 @@ class ActionLogServiceProvider extends ServiceProvider
             __DIR__ . '/config/actionlog.php' => config_path('actionlog.php'),
         ], 'config');
 
-        $enable = config("actionlog.enable",false);
-        $model = config("actionlog.models",[]);
+        $enable = config("actionlog.enable", false);
+        $model = config("actionlog.models", []);
+
         if ($model && $enable) {
             foreach ($model as $k => $v) {
+                $v::created(function ($data) {
+                    ActionLog::createActionLog('create', $data);
+                });
 
                 $v::updated(function ($data) {
                     ActionLog::createActionLog('update', $data);
-                });
-
-                $v::saved(function ($data) {
-                    ActionLog::createActionLog('add', $data);
                 });
 
                 $v::deleted(function ($data) {
                     ActionLog::createActionLog('delete', $data);
 
                 });
-
             }
         }
     }

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
@@ -15,17 +16,17 @@ class CrateActionLogTable extends Migration
         Schema::create('action_log', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger("user_id")->nullable();
-            $table->string("type","50")->comment("Type of operation");
-            $table->string("method","10")->comment("method");
-            $table->string("ip","50")->comment("operation ip");
-            $table->string("browser",150)->nullable()->comment("browser");
-            $table->string("system",50)->nullable()->comment("system");
-            $table->text("user_agent")->nullable()->comment("user_agent");
-            $table->string("url",150)->comment('url');
-            $table->text("content")->comment("content");
-
             $table->string('action_logable_type')->nullable();
             $table->unsignedInteger('action_logable_id')->nullable();
+
+            $table->string("type","50")->comment("Custom type of operation");
+            $table->string("method","10");
+            $table->string("ip","50")->nullable();
+            $table->string("browser",150)->nullable();
+            $table->string("system",50)->nullable();
+            $table->text("user_agent")->nullable();
+            $table->string("url",150);
+            $table->text("content");
 
             $table->timestamps();
         });
