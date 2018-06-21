@@ -57,6 +57,10 @@ class ActionLogRepository
         $actionLog->method = request()->method();
     }
 
+    /**
+     * @param ActionLog $actionLog
+     * @param $content
+     */
     protected function setContent(ActionLog &$actionLog, $content)
     {
         if (is_string($content)) {
@@ -66,21 +70,14 @@ class ActionLogRepository
         }
     }
 
+    /**
+     * @param ActionLog $actionLog
+     * @param $model
+     */
     protected function setContentFromModel(ActionLog &$actionLog, $model)
     {
         $actionLog->action_logable_type = get_class($model);
         $actionLog->action_logable_id = $model->id;
-
-        $content = '';
-        $fillable = $model->getFillable();
-        $hidden = $model->getHidden();
-
-        foreach ($model->toArray() as $key => $value) {
-            if (in_array($key, $fillable) && !in_array($key, $hidden)) {
-                $content .= $key . ': ' . $value . '; ';
-            }
-        }
-
-        $actionLog->content = $content;
+        $actionLog->content = $model->toJson();
     }
 }
