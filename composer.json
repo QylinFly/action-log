@@ -18,6 +18,12 @@
     "psr-4": {
       "Qylinfly\\ActionLog\\": "src/"
     }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Qylinfly\\ActionLog\\ActionLogServiceProvider"
+      ]
+    }
   }
- 
 }

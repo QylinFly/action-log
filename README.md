@@ -131,7 +131,7 @@ Active log operation log
 
 use ActionLog
 
-ActionLog::createActionLog($type,$content);
+ActionLog::createActionLog($type, $content);
 
 ```
 

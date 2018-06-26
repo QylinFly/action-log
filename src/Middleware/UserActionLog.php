@@ -10,25 +10,24 @@ class UserActionLog
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param  \Illuminate\Http\Request $request
+     * @param  \Closure $next
      * @return mixed
      */
     public function handle($request, Closure $next)
     {
-        $response =   $next($request);
-        
-        $enable = config("actionlog.enable",false);
-        if($enable){
-            $request_methods = config("actionlog.request_methods",[]);
+        $response = $next($request);
+        $enable = config("actionlog.enable", false);
+
+        if ($enable) {
+            $request_methods = config("actionlog.request_methods", []);
             $method = $request->method();
-            if(in_array($method,$request_methods)) {
+            if (in_array($method, $request_methods)) {
                 $content = json_encode($request->all());
-                ActionLog::createActionLog('request',$content);
+                ActionLog::createActionLog('request', $content);
             }
         }
 
         return $response;
     }
-
 }
