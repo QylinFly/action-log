@@ -5,11 +5,11 @@
  *
  * For example:
  *
- * clientService::getBrowser($_SERVER['HTTP_USER_AGENT'],true)  //获取客户端游览器类型和版本号
- * clientService::getPlatForm($_SERVER['HTTP_USER_AGENT'],true)  //获取客户端操作系统和版本号
+ * ClientService::getBrowser($_SERVER['HTTP_USER_AGENT'],true)  //获取客户端游览器类型和版本号
+ * ClientService::getPlatForm($_SERVER['HTTP_USER_AGENT'],true)  //获取客户端操作系统和版本号
  */
 namespace Qylinfly\ActionLog\Services;
-class clientService
+class ClientService
 {
 
     /**

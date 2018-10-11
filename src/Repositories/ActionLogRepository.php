@@ -1,7 +1,7 @@
 <?php
 namespace Qylinfly\ActionLog\Repositories;
 
-use Qylinfly\ActionLog\Services\clientService;
+use Qylinfly\ActionLog\Services\ClientService;
 class ActionLogRepository {
 
 
@@ -27,8 +27,8 @@ class ActionLogRepository {
             }
 
             if(isset($_SERVER['HTTP_USER_AGENT'])) {
-                $actionLog->browser = clientService::getBrowser($_SERVER['HTTP_USER_AGENT'], true);
-                $actionLog->system = clientService::getPlatForm($_SERVER['HTTP_USER_AGENT'], true);
+                $actionLog->browser = ClientService::getBrowser($_SERVER['HTTP_USER_AGENT'], true);
+                $actionLog->system = ClientService::getPlatForm($_SERVER['HTTP_USER_AGENT'], true);
 
                 //save user_agent when  no browser and system
                 if($actionLog->browser=='' || $actionLog->system==''){
